@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktfremvisning</title>
+    <link rel="stylesheet" href="../Static/style.css" />
+</head>
+<body>
+
+  <!-- SECTION 1: Top Bar -->
+    <!-- NAVIGATION BAR -->
+    <section class="section1 top-bar">
+      <div class="nav-left">
+        <a href="{{ url_for('index') }}" class="links"><p>Hjem</p></a>
+        <a href="{{ url_for('index') }}#section10" class="links"
+          ><p>Produkter</p></a
+        >
+        <a href="{{ url_for('index') }}#section12" class="links"
+          ><p>Opskrifter</p></a
+        >
+        <a href="{{ url_for('info') }}" class="links"><p>Info</p></a>
+      </div>
+
+       <!--->{ if session.get('user') %} -->
+
+
+      <div class="nav-right">
+        <a href="#" class="links"><p>Søg</p></a>
+        <a href="{{ url_for('indkoebsliste') }}" class="links"
+          ><p>Favoritter</p></a>
+        <a href="{{ url_for('logout') }}" class="links"><p>Log ud</p></a>
+        <a href="{{ url_for('login') }}" class="links"><p>Login</p></a>
+      </div>
+    </section>
+
+    <!-- Top Image Section -->
+    <section class="top-image">
+        <img src="your-image.jpg" alt="Featured Product">
+    </section>
+
+    <!-- Text Box Section -->
+    <section class="text-box">
+        <h2>Produktfremvisning</h2>
+        <p>Oplev vores fantastiske produkter! Tilføj dine favoritter til din indkøbsliste.</p>
+    </section>
+
+    <section class="product-carousel">
+      <h2>Produktfremvisning</h2>
+      <div class="carousel-container">
+        <!-- Left Arrow -->
+        <button class="carousel-prev">&#10094;</button>
+
+        <!-- The grid carousel: uses CSS Grid for layout -->
+        <div class="grid-carousel" id="product-list">
+                 <!-- Product Item 1 -->
+        <div class="product-item" data-category="mejeri">
+          <img src="product1.jpg" alt="Produkt 1" />
+          <h3>Produktnavn 1</h3>
+          <p>Beskrivelse af produkt 1</p>
+          <button onclick="addToCart(3)">Tilføj til liste</button>
+        </div>
+        <!-- Product Item 2 -->
+        <div class="product-item" data-category="drikke">
+          <img src="product2.jpg" alt="Produkt 2" />
+          <h3>Produktnavn 2</h3>
+          <p>Beskrivelse af produkt 2</p>
+          <button onclick="addToCart(3)">Tilføj til liste</button>
+        </div>
+        <!-- Product Item 3 -->
+        <div class="product-item" data-category="dessert">
+          <img src="C:\Users\Blondie\Desktop\Web.exam\Eksamensprojekt-DS838-2025-main\Static\Images\product-arla-chocolatefudge.png" alt="Produkt 3" />
+          <h3>Produktnavn 3</h3>
+          <p>Beskrivelse af produkt 3</p>
+          <button onclick="addToCart(3)">Tilføj til liste</button>
+        </div>
+        <!-- Product Item 4 -->
+        <div class="product-item" data-category="mejeri">
+          <img src="C:\Users\Blondie\Desktop\Web.exam\Eksamensprojekt-DS838-2025-main\Static\Images\product-arla-drikkeskyr.png" alt="Produkt 4" />
+          <h3>Produktnavn 4</h3>
+          <p>Beskrivelse af produkt 4</p>
+          <button onclick="addToCart(3)">Tilføj til liste</button>
+        </div>
+        <!-- Product Item 5 -->
+        <div class="product-item" data-category="drikke">
+          <img src="C:\Users\Blondie\Desktop\Web.exam\Eksamensprojekt-DS838-2025-main\Static\Images\product-staystrong-skyr.png" alt="Produkt 5" />
+          <h3>Produktnavn 5</h3>
+          <p>Beskrivelse af produkt 5</p>
+          <button onclick="addToCart(3)">Tilføj til liste</button>
+        </div>
+        <!-- Product Item 6 -->
+        <div class="product-item" data-category="dessert">
+          <img src="C:\Users\Blondie\Desktop\Web.exam\Eksamensprojekt-DS838-2025-main\Static\Images\product-thise-cremefraiche.png" alt="Produkt 6" />
+          <h3>Produktnavn 6</h3>
+          <p>Beskrivelse af produkt 6</p>
+          <button onclick="addToCart(3)">Tilføj til liste</button>
+        </div>
+      </div>
+     
+
+     
+        </div>
+       
+        <!-- Right Arrow -->
+        <button class="carousel-next">&#10095;</button>
+      </div>
+     
+      <!-- Dots (optional) -->
+      <div class="carousel-dots"></div>
+    </section>
+  
+
+  <!-- SECTION 15: Footer -->
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Kontakt</h4>
+          <p>Email: kontakt@maelkevejen.dk</p>
+          <p>Telefon: +45 1234 5678</p>
+        </div>
+        <div class="footer-column">
+          <h4>Følg os</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Tilmeld dig vores nyhedsbrev</h4>
+          <form>
+            <input type="email" placeholder="Indtast din email" />
+            <button type="submit">Tilmeld</button>
+          </form>
+        </div>
+        <div class="footer-column logo-column">
+          <img
+            src="{{ url_for('static', filename='Images/logo.png') }}"
+            alt="Mælkevejen logo"
+          />
+        </div>
+      </div>
+      <div class="cookie-notice">
+        <p>
+          Vi bruger cookies for at forbedre din oplevelse.
+          <a href="/cookie_policy" class= "links">Læs mere</a>
+        </p>
+        <button onclick="allowCookies()">Accepter</button>
+        <button onclick="declineCookies()">Afvis</button>
+      </div>
+    </footer>
+
+    <script src="Static/lak_prod.js" defer></script>
+</body>
+</html>

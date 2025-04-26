@@ -1,0 +1,382 @@
+/* ----------------------------- */
+/*         1. CSS Variables     */
+/* ----------------------------- */
+:root {
+  --sage-green: #b2ac88;
+  --dusty-purple: #7c82a5;
+  --light-neutral: #f8f8f2;
+  --off-white: #e2e0d3;
+  --brownish-gray: #a39e8c;
+  --dark-neutral: #575448;
+  --accent-border: orange;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-neutral);
+  color: var(--dark-neutral);
+  line-height: 1.5;
+  padding: 20px;
+  font-family: "Winky Sans", sans-serif;
+}
+
+/* ----------------------------- */
+/*         2. Top Bar            */
+/* ----------------------------- */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--off-white);
+  padding: 10px 20px;
+  border: 1px solid var(--accent-border);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.nav-left,
+.nav-right {
+  margin: 0;
+  display: flex;
+}
+
+.links {
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--dark-neutral);
+}
+
+/* ----------------------------- */
+/*         3. Banner             */
+/* ----------------------------- */
+.banner {
+  position: relative;
+  min-height: 300px;
+  background-color: var(--brownish-gray);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--accent-border);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.banner h1 {
+  font-size: 4rem;
+  z-index: 1;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+
+.banner .tagline {
+  font-size: 2rem;
+  z-index: 1;
+  padding-left: 150px;
+  font-family: "Rochester", sans-serif;
+  margin-top: 0;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+/* ----------------------------- */
+/*         4. Visual Media       */
+/* ----------------------------- */
+.image-container,
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-container video {
+  object-fit: cover;
+  object-position: center bottom;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.35);
+}
+
+.video-heading,
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+  font-family: "Lora", sans-serif;
+}
+
+.video-heading {
+  font-size: 3.5rem;
+}
+
+.image-text {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/* ----------------------------- */
+/*         5. Sections           */
+/* ----------------------------- */
+.section3 {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 2rem 0;
+  border-radius: 10px;
+}
+
+/* Fade-in setup */
+.quote-box {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.quote-box.fade-in {
+  opacity: 1;
+}
+
+.section3 .quote-box {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.section3 .quote-box h2 {
+  font-size: 4rem;
+  font-family: "Rochester", sans-serif;
+}
+
+.section3 .quote-box p {
+  font-size: 2rem;
+}
+
+.section5 {
+  font-family: "Lora", sans-serif;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--off-white);
+  margin-bottom: 20px;
+}
+
+/* ----------------------------- */
+/*         6. Layout             */
+/* ----------------------------- */
+.row {
+  display: flex;
+  padding: 1;
+}
+
+.landing-box,
+.pic-box {
+  flex: 1;
+  max-width: 100%;
+  height: 700px;
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+}
+
+.pic-box img.responsive-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;
+  filter: brightness(0.5);
+}
+
+.spotlight-prod {
+  width: 300px;
+  height: auto;
+}
+
+/* ----------------------------- */
+/*         7. Product Grid       */
+/* ----------------------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  column-gap: 30px;
+  row-gap: 40px;
+  justify-content: center;
+  padding: 40px;
+  font-family: "Lora", sans-serif;
+}
+
+.product-card {
+  flex: 1 1 250px;
+  max-width: 350px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid var(--brownish-gray);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  font-family: "Lora", sans-serif;
+}
+
+.product-card p {
+  font-size: 1rem;
+}
+
+/* ----------------------------- */
+/*         8. Footer             */
+/* ----------------------------- */
+.main-footer {
+  background-color: var(--dark-neutral);
+  color: var(--light-neutral);
+  padding: 40px 20px;
+  font-family: "Lora", sans-serif;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--off-white);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+}
+
+.footer-column ul li a {
+  color: var(--light-neutral);
+  text-decoration: none;
+}
+
+.footer-column form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column input[type="email"] {
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+.footer-column button {
+  padding: 8px;
+  background-color: var(--sage-green);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logo-column img {
+  max-width: 120px;
+  filter: brightness(0) invert(1);
+}
+
+.cookie-notice {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  background-color: #444;
+}
+
+/* ----------------------------- */
+/*         9. Utility            */
+/* ----------------------------- */
+.fade-hover {
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out, transform 0.4s ease;
+}
+
+.fade-hover:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ----------------------------- */
+/*        10. Responsive         */
+/* ----------------------------- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
