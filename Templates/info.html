@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info om Laktoseintolerance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='info.css') }}">
+</head>
+<body>
+  <!-- SECTION 1: Top Bar -->
+    <!-- NAVIGATION BAR -->
+    <section class="section1 top-bar">
+      <div class="nav-left">
+        <a href="{{ url_for('index') }}" class="links"><p>Hjem</p></a>
+        <a href="{{ url_for('index') }}#section10" class="links"
+          ><p>Produkter</p></a
+        >
+        <a href="{{ url_for('index') }}#section12" class="links"
+          ><p>Opskrifter</p></a
+        >
+        <a href="{{ url_for('info') }}" class="links"><p>Info</p></a>
+      </div>
+
+      <div class="nav-right">
+        <a href="#" class="links"><p>Søg</p></a>
+
+        {% if session.get('user') %}
+        <a href="{{ url_for('indkoebsliste') }}" class="links"
+          ><p>Favoritter</p></a
+        >
+        <a href="{{ url_for('logout') }}" class="links"><p>Log ud</p></a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="links"><p>Login</p></a>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="section3">
+      <div class="row">
+        <div class="pic-box">
+          <div class="image-container">
+            <h1 class="image-text">Hvad er Laktoseintolerance?</h1>
+            <img src="{{ url_for('static', filename='Images/lactose1.jpg') }}" alt="Laktoseintolerance" class="responsive-img">
+          </div>
+        </div>
+        <div class="landing-box">
+          <h2>Hvad er Laktoseintolerance?</h2>
+          <p>
+            Laktoseintolerance er en fordøjelsesforstyrrelse, hvor kroppen ikke kan nedbryde laktose, et sukkerstof i mælk. Det skyldes mangel på enzymet laktase. 
+            Uden tilstrækkelig laktase forbliver laktosen ufordøjet og fermenteres i tyktarmen, hvilket skaber symptomer som luft i maven og diarré. 
+            Symptomer kan variere fra milde til meget ubehagelige, afhængigt af mængden af laktose og graden af laktasemangel. 
+            Mange mennesker opdager først deres intolerance i voksenlivet, ofte efter en ændring i kost eller helbredstilstand.
+          </p>
+          <div class="subsection">
+            <h3>Hvordan det adskiller sig fra Mælkeallergi</h3>
+            <p>
+              Laktoseintolerance er en enzymmangel i fordøjelsen, mens mælkeallergi er en immunreaktion på mælkeproteiner. 
+              Mælkeallergi kan forårsage alvorlige symptomer som anafylaksi, hududslæt og vejrtrækningsproblemer, hvor laktoseintolerance primært giver milde, men ubehagelige fordøjelsessymptomer. 
+              Det er vigtigt at kende forskellen, da mælkeallergi kan være livstruende, mens laktoseintolerance primært handler om fordøjelseskomfort.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section3">
+      <div class="row">
+        <div class="pic-box">
+          <div class="image-container">
+            <h1 class="image-text">Årsager og Risikofaktorer</h1>
+            <img src="{{ url_for('static', filename='Images/lactose2.jpg') }}" alt="Genetik og laktose" class="responsive-img">
+          </div>
+        </div>
+        <div class="landing-box">
+          <h2>Årsager og Risikofaktorer</h2>
+          <div class="subsection">
+            <h3>Genetik og Etnicitet</h3>
+            <p>
+              Laktoseintolerance er mere almindelig hos personer med østasiatisk, afrikansk, oprindelig amerikansk eller middelhavsbaggrund. 
+              Denne genetiske disposition skyldes en naturlig nedsættelse af laktaseproduktionen efter barndommen, hvorimod mennesker med nordeuropæisk baggrund ofte kan tolerere laktose hele livet. 
+              Historisk set udviklede visse befolkninger evnen til at fordøje laktose som en tilpasning til mælkeproduktion. 
+              I dag afspejler laktosetolerance stadig vores genetiske rødder.
+            </p>
+          </div>
+          <div class="subsection">
+            <h3>Aldring og Laktoseintolerance</h3>
+            <p>
+              Produktionen af laktase falder naturligt med alderen. Mange voksne, der tidligere kunne nyde mælk uden problemer, begynder at opleve symptomer på intolerance i 30- eller 40-årsalderen. 
+              Skader på tyndtarmen fra sygdomme som cøliaki kan også fremprovokere sekundær laktoseintolerance. 
+              Derfor kan laktoseintolerance udvikles gradvist, uden at personen umiddelbart forbinder det med alderdommen. 
+              En sund og varieret kost kan hjælpe med at kompensere for tabet af mælk i kosten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section3">
+      <div class="row">
+        <div class="pic-box">
+          <div class="image-container">
+            <h1 class="image-text">Symptomer</h1>
+            <img src="{{ url_for('static', filename='Images/lactose3.jpg') }}" alt="Symptomer på laktoseintolerance" class="responsive-img">
+          </div>
+        </div>
+        <div class="landing-box">
+          <h2>Symptomer</h2>
+          <div class="subsection">
+            <h3>Almindelige Tegn</h3>
+            <p>
+              De mest almindelige symptomer inkluderer oppustethed, diarré, mavekramper, luft i maven og kvalme. 
+              Nogle personer oplever også hovedpine, træthed eller generel utilpashed efter indtagelse af mælkeprodukter. 
+              For nogle kan symptomerne være så milde, at de ikke forbinder dem med mælkeindtag, hvilket kan forsinke diagnosen.
+            </p>
+          </div>
+          <div class="subsection">
+            <h3>Tidspunkt for Symptomer</h3>
+            <p>
+              Symptomerne starter typisk mellem 30 minutter og 2 timer efter, at en person har indtaget mad eller drikkevarer, der indeholder laktose. 
+              Mængden af laktose, der tolereres, varierer fra person til person, og små mængder kan være symptomfri for nogle. 
+              Det er vigtigt at holde øje med, hvilke fødevarer der udløser symptomer, for at kunne tilpasse kosten effektivt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section3">
+      <div class="row">
+        <div class="pic-box">
+          <div class="image-container">
+            <h1 class="image-text">Håndtering og Behandling</h1>
+            <img src="{{ url_for('static', filename='Images/lactose4.jpg') }}" alt="Behandling af laktoseintolerance" class="responsive-img">
+          </div>
+        </div>
+        <div class="landing-box">
+          <h2>Håndtering og Behandling</h2>
+          <div class="subsection">
+            <h3>Håndtering af Symptomer</h3>
+            <p>
+              Behandling består primært af diætændringer. Mange vælger at undgå mejeriprodukter eller benytte laktase-tilskud, som hjælper med at nedbryde laktosen. 
+              Der findes også naturligt laktosefattige produkter som modne oste og fermenteret yoghurt, som mange tåler bedre. 
+              Der findes nu et bredt udvalg af laktosefrie produkter på markedet, hvilket gør det lettere end nogensinde at spise varieret uden ubehag.
+            </p>
+          </div>
+          <div class="subsection">
+            <h3>Livsstilsændringer</h3>
+            <p>
+              Vedvarende symptomfrihed kræver bevidste valg i hverdagen. 
+              Udskift mælk med alternativer som mandel-, havre- eller sojamælk. 
+              Læs varedeklarationer nøje, da laktose kan være skjult i kager, supper, saucer og pålæg. 
+              Mange oplever, at små justeringer i kosten kan have en stor positiv effekt på livskvaliteten. 
+              Regelmæssige måltider og sundt valg kan også forbedre fordøjelsen generelt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+ <!-- SECTION 15: Footer -->
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Kontakt</h4>
+          <p>Email: kontakt@maelkevejen.dk</p>
+          <p>Telefon: +45 1234 5678</p>
+        </div>
+        <div class="footer-column">
+          <h4>Følg os</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Tilmeld dig vores nyhedsbrev</h4>
+          <form>
+            <input type="email" placeholder="Indtast din email" />
+            <button type="submit">Tilmeld</button>
+          </form>
+        </div>
+        <div class="footer-column logo-column">
+          <img
+            src="{{ url_for('static', filename='Images/logo.png') }}"
+            alt="Mælkevejen logo"
+          />
+        </div>
+      </div>
+
+</body>
+</html>

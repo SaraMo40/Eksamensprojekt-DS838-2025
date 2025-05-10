@@ -1,6 +1,6 @@
-/* ----------------------------- */
-/*         1. CSS Variables     */
-/* ----------------------------- */
+/********************************************/
+/* 1. CSS Variables                         */
+/********************************************/
 :root {
   --sage-green: #b2ac88;
   --dusty-purple: #7c82a5;
@@ -26,9 +26,9 @@ body {
   font-family: "Winky Sans", sans-serif;
 }
 
-/* ----------------------------- */
-/*         2. Top Bar            */
-/* ----------------------------- */
+/********************************************/
+/* 2. Top Bar                               */
+/********************************************/
 .top-bar {
   position: sticky;
   top: 0;
@@ -43,21 +43,33 @@ body {
   margin-bottom: 20px;
 }
 
+/* Aligning both nav-left and nav-right using flex */
 .nav-left,
 .nav-right {
-  margin: 0;
   display: flex;
+  align-items: center;
 }
 
-.links {
+.nav-left a,
+.nav-right a {
   padding: 0.5rem;
   text-decoration: none;
   color: var(--dark-neutral);
 }
 
-/* ----------------------------- */
-/*         3. Banner             */
-/* ----------------------------- */
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-left p,
+.nav-right p {
+  margin: 0;
+}
+
+/********************************************/
+/* 3. Banner                                */
+/********************************************/
 .banner {
   position: relative;
   min-height: 300px;
@@ -106,9 +118,9 @@ body {
   filter: brightness(0.5);
 }
 
-/* ----------------------------- */
-/*         4. Visual Media       */
-/* ----------------------------- */
+/********************************************/
+/* 4. Visual Media                          */
+/********************************************/
 .image-container,
 .video-container {
   position: relative;
@@ -146,9 +158,9 @@ body {
   font-weight: 500;
 }
 
-/* ----------------------------- */
-/*         5. Sections           */
-/* ----------------------------- */
+/********************************************/
+/* 5. Sections                             */
+/********************************************/
 .section3 {
   background-color: rgba(255, 255, 255, 0.4);
   padding: 2rem 0;
@@ -196,17 +208,9 @@ section {
   margin-bottom: 20px;
 }
 
-.section12 {
-    font-family: "Lora", sans-serif;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-}
-/* ----------------------------- */
-/*         6. Layout             */
-/* ----------------------------- */
+/********************************************/
+/* 6. Layout                               */
+/********************************************/
 .row {
   display: flex;
   padding: 1;
@@ -223,7 +227,7 @@ section {
   background-color: ;
 }
 
-}.landing-box h3 {
+.landing-box h3 {
   color: var(--brownish-gray);
 }
 
@@ -242,23 +246,24 @@ section {
   height: auto;
 }
 
-/* ----------------------------- */
-/*         7. Product Grid       */
-/* ----------------------------- */
+/********************************************/
+/* 7. Product Grid                         */
+/********************************************/
+/* Horizontal product grid */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  column-gap: 30px;
-  row-gap: 40px;
-  justify-content: center;
-  padding: 40px;
+  display: flex; /* Flexbox for horizontal layout */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  column-gap: 30px; /* Space between items */
+  padding: 40px 20px; /* Padding around the grid */
   font-family: "Lora", sans-serif;
+  width: 100%; /* Ensure full width of the container */
 }
 
 .product-card {
-  flex: 1 1 250px;
-  max-width: 350px;
-  margin: 0 auto;
+  flex: 0 0 auto; /* Prevent cards from growing/shrinking */
+  width: 280px; /* Fixed width for each card */
+  margin: 0 auto; /* Center cards horizontally */
   background-color: white;
   border: 1px solid var(--brownish-gray);
   border-radius: 20px;
@@ -285,9 +290,23 @@ section {
   font-size: 1rem;
 }
 
-/* ----------------------------- */
-/*         8. Footer             */
-/* ----------------------------- */
+/* Scrollbar Styling (for better visibility) */
+.product-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background-color: var(--brownish-gray);
+  border-radius: 4px;
+}
+
+.product-grid::-webkit-scrollbar-track {
+  background: #e2e0d3;
+}
+
+/********************************************/
+/* 8. Footer                               */
+/********************************************/
 .main-footer {
   background-color: var(--dark-neutral);
   color: var(--light-neutral);
@@ -361,9 +380,9 @@ section {
   background-color: #444;
 }
 
-/* ----------------------------- */
-/*         9. Utility            */
-/* ----------------------------- */
+/********************************************/
+/* 9. Utility                              */
+/********************************************/
 .fade-hover {
   opacity: 0.5;
   transition: opacity 0.5s ease-in-out, transform 0.4s ease;
@@ -374,9 +393,9 @@ section {
   transform: scale(1.05);
 }
 
-/* ----------------------------- */
-/*        10. Responsive         */
-/* ----------------------------- */
+/********************************************/
+/* 10. Responsive                          */
+/********************************************/
 @media (max-width: 768px) {
   body {
     padding: 10px;
@@ -474,4 +493,31 @@ section {
 /* Error Message */
 #newsletter-message.error {
   color: orangered;
+}
+
+/* Styling for scroll arrows */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }

@@ -1,3 +1,206 @@
-.square {
-    background-color: pink;
+:root {
+  --sage-green: #b2ac88;
+  --dusty-purple: #7c82a5;
+  --light-neutral: #f8f8f2;
+  --off-white: #e2e0d3;
+  --brownish-gray: #a39e8c;
+  --dark-neutral: #575448;
+  --accent-border: orange;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-neutral);
+  color: var(--dark-neutral);
+  font-family: "Winky Sans", sans-serif;
+  padding: 20px;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--off-white);
+  padding: 10px 20px;
+  border: 1px solid var(--accent-border);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+}
+
+.links {
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--dark-neutral);
+}
+
+/* Banner */
+.big-banner {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+.big-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  border-radius: 8px;
+}
+
+.big-banner img.fade-out {
+  opacity: 0;
+}
+
+/* Intro */
+.intro-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-text h1 {
+  font-size: 2.5rem;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+}
+
+/* Search */
+.recipe-search {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#searchInput {
+  padding: 10px;
+  width: 250px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Carousel */
+.recipe-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 30px 0;
+}
+
+.recipe-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  overflow-x: auto; /* <--- ADD THIS */
+  scroll-behavior: smooth; /* <--- ADD THIS */
+  padding: 10px;
+}
+
+.recipe-carousel::-webkit-scrollbar {
+  display: none; /* optional: hide scrollbar */
+}
+
+.recipe-card {
+  background: white;
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 0 0 calc(33.333% - 20px);
+  text-align: center;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-card h3 {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.recipe-card p {
+  padding: 0 10px 10px;
+  font-size: 0.9rem;
+}
+.carousel-btn {
+  background-color: var(--sage-green); /* Use your sage green variable */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background-color: #a8a176; /* slightly darker sage on hover (optional) */
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--dark-neutral);
+  color: var(--light-neutral);
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.footer-column img {
+  max-width: 120px;
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .recipe-carousel {
+    flex-wrap: nowrap;
+  }
+  .recipe-card {
+    flex: 0 0 80%;
+  }
 }
